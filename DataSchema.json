@@ -120,7 +120,7 @@
         "датаНадсилання": {
           "type": "string",
           "format": "date-time",
-          "description": "Дата та час надсилання повідомлення",
+          "description": "Дата та час надсилання повідомлення"
         }
       },
       "required": ["message_id", "artist_id", "текст", "датаНадсилання"]

@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Деталізована схема даних",
+  "type": "object",
+  "properties": {
+    "Користувач": {
+      "description": "Інформація про користувача",
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "description": "Унікальний ідентифікатор користувача",
+          "minimum": 1
+        },
+        "ім'я": {
+          "type": "string",
+          "description": "Ім'я користувача",
+          "maxLength": 100,
+          "pattern": "^[A-Za-zА-Яа-яЇїІіЄєҐґ ]+$"
+        },
+        "контактні_дані": {
+          "type": "string",
+          "description": "Контактні дані користувача",
+          "maxLength": 255,
+          "pattern": "^[\\w.%+-]+@[\\w.-]+\\.[A-Za-z]{2,}$"
+        }
+      },
+      "required": ["user_id", "ім'я", "контактні_дані"]
+    },
+    "Художник": {
+      "description": "Інформація про художника",
+      "type": "object",
+      "properties": {
+        "artist_id": {
+          "type": "integer",
+          "description": "Унікальний ідентифікатор художника",
+          "minimum": 1
+        },
+        "user_id": {
+          "type": "integer",
+          "description": "Ідентифікатор користувача (FK)"
+        }
+      },
+      "required": ["artist_id", "user_id"]
+    },
+    "НавчальніМатеріали": {
+      "description": "Інформація про навчальні матеріали",
+      "type": "object",
+      "properties": {
+        "material_id": {
+          "type": "integer",
+          "description": "Унікальний ідентифікатор навчального матеріалу",
+          "minimum": 1
+        },
+        "artist_id": {
+          "type": "integer",
+          "description": "Ідентифікатор художника (FK)"
+        },
+        "назва": {
+          "type": "string",
+          "description": "Назва навчального матеріалу",
+          "maxLength": 150
+        },
+        "опис": {
+          "type": "string",
+          "description": "Опис навчального матеріалу",
+          "maxLength": 500
+        }
+      },
+      "required": ["material_id", "artist_id", "назва", "опис"]
+    },
+    "ТехнічнаПідтримка": {
+      "description": "Інформація про технічну підтримку",
+      "type": "object",
+      "properties": {
+        "support_id": {
+          "type": "integer",
+          "description": "Унікальний ідентифікатор запиту на технічну підтримку",
+          "minimum": 1
+        },
+        "artist_id": {
+          "type": "integer",
+          "description": "Ідентифікатор художника (FK)"
+        },
+        "запит": {
+          "type": "string",
+          "description": "Текст запиту",
+          "maxLength": 500
+        },
+        "відповідь": {
+          "type": "string",
+          "description": "Текст відповіді",
+          "maxLength": 500
+        }
+      },
+      "required": ["support_id", "artist_id", "запит", "відповідь"]
+    },
+    "Повідомлення": {
+      "description": "Інформація про повідомлення",
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "integer",
+          "description": "Унікальний ідентифікатор повідомлення",
+          "minimum": 1
+        },
+        "artist_id": {
+          "type": "integer",
+          "description": "Ідентифікатор художника (FK)"
+        },
+        "текст": {
+          "type": "string",
+          "description": "Текст повідомлення",
+          "maxLength": 1000
+        },
+        "датаНадсилання": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Дата та час надсилання повідомлення",
+        }
+      },
+      "required": ["message_id", "artist_id", "текст", "датаНадсилання"]
+    },
+    "Ідея": {
+      "description": "Інформація про ідеї",
+      "type": "object",
+      "properties": {
+        "idea_id": {
+          "type": "integer",
+          "description": "Унікальний ідентифікатор ідеї",
+          "minimum": 1
+        },
+        "message_id": {
+          "type": "integer",
+          "description": "Ідентифікатор повідомлення (FK)"
+        },
+        "назва": {
+          "type": "string",
+          "description": "Назва ідеї",
+          "maxLength": 100
+        },
+        "опис": {
+          "type": "string",
+          "description": "Опис ідеї",
+          "maxLength": 500
+        }
+      },
+      "required": ["idea_id", "message_id", "назва", "опис"]
+    }
+  },
+  "required": ["Користувач", "Художник", "НавчальніМатеріали", "ТехнічнаПідтримка", "Повідомлення", "Ідея"]
+}

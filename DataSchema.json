@@ -27,6 +27,7 @@
       },
       "required": ["user_id", "ім'я", "контактні_дані"]
     },
+    
     "Художник": {
       "description": "Інформація про художника",
       "type": "object",
@@ -43,6 +44,7 @@
       },
       "required": ["artist_id", "user_id"]
     },
+    
     "НавчальніМатеріали": {
       "description": "Інформація про навчальні матеріали",
       "type": "object",
@@ -69,6 +71,7 @@
       },
       "required": ["material_id", "artist_id", "назва", "опис"]
     },
+    
     "ТехнічнаПідтримка": {
       "description": "Інформація про технічну підтримку",
       "type": "object",
@@ -95,6 +98,7 @@
       },
       "required": ["support_id", "artist_id", "запит", "відповідь"]
     },
+    
     "Повідомлення": {
       "description": "Інформація про повідомлення",
       "type": "object",
@@ -121,6 +125,7 @@
       },
       "required": ["message_id", "artist_id", "текст", "датаНадсилання"]
     },
+    
     "Ідея": {
       "description": "Інформація про ідеї",
       "type": "object",
